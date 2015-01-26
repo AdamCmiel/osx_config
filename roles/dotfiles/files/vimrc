@@ -1,0 +1,100 @@
+" VIMrc Adam Cmiel "
+
+" Syntax Highlighting "
+syntax enable
+let base16colorspace=256
+let g:solarized_termcolors=16
+colorscheme base16-ocean 
+set background=dark
+""set guifont=Consolas:h20
+set guifont=Inconsolata_for_Powerline:h20
+
+" Markdown syntax plugin "
+augroup markdown
+    au!
+    au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+augroup END
+
+" Set line numbers "
+set number
+
+" Add line feeds to end of file "
+set endofline
+
+" Make all windows equal size "
+set equalalways
+
+" Show .files in nerd tree "
+let NERDTreeShowHidden=1
+
+" Tabs to 4 spaces "
+set tabstop=4
+set expandtab
+set shiftwidth=4
+set shiftround
+
+" Use C-style indentation "
+set cindent
+set copyindent    " copy the previous indentation on autoindenting "
+" Make coffee/python/ruby comments not jump to beginning of line"
+autocmd BufRead *.py inoremap # X<c-h>#
+autocmd BufRead *.coffee inoremap # X<c-h>#
+autocmd BufRead *.rb inoremap # X<c-h>#
+
+" Don't use swapfiles "
+set noswapfile
+
+set nowrap        " don't wrap lines
+set backspace=indent,eol,start
+                  " allow backspacing over everything in insert mode
+set showmatch     " set show matching parenthesis
+set smarttab      " insert tabs on the start of a line according to
+                  "    shiftwidth, not tabstop
+set hlsearch      " highlight search terms
+set incsearch     " show search matches as you type
+
+set title
+
+" Toggle show invisibles "
+nmap <silent> <F5> "set list"<CR>
+nmap <silent> <F6> "set list!"<CR>
+
+" Toggle between regular numbering, relative numbering, no numbering
+nmap <silent> <F2> :exec &nu==&rnu ? "se nu!" : "se rnu!"<CR>
+
+" Enable paste mode--helps quash indent, etc. problems when pasting blocks of code
+nnoremap <F3> :set invpaste paste?<CR>
+
+" Show help "
+map <silent> <F8> :vsplit ~/.vimhelp<CR>
+
+" Copy whole buffer to pbcopy "
+map <silent> <F7> :%!pbcopy<CR>u
+
+" crosshair "
+" set cursorline           " Highlight the current line
+" set cursorcolumn         " Highlight the current column
+
+nnoremap <C-n> :NERDTreeToggle<CR>
+execute pathogen#infect()
+""let g:syntastic_javascript_checkers = ['jshint', 'eslint']
+
+" For Airline "
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+" Show the font glyphs "
+""let g:airline_powerline_fonts = 1
+""if !exists('g:airline_symbols')
+""  let g:airline_symbols = {}
+""endif 
+""let g:airline_symbols.space = "\ua0"
+set fillchars+=stl:\ ,stlnc:\
+set laststatus=2
+
+" My preference with using buffers. See `:h hidden` for more details
+set hidden
+

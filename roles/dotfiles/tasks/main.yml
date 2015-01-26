@@ -1,0 +1,15 @@
+---
+- name: Copy config dot files in home directory
+  copy:
+    src={{ item }}
+    dest={{ home }}/.{{ item }}
+    owner=adamcmiel
+    group=staff
+    mode=600
+  with_items:
+     - bash_profile
+     - vimrc
+     - vimhelp
+     - git-completion.bash
+     - gitconfig
+

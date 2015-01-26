@@ -1,0 +1,10 @@
+---
+- name: Install packages and configuration for Adam's OS X dev machine
+  hosts: all 
+  user: root
+  vars:
+    home: /Users/adamcmiel
+
+  roles:
+#    - packages
+    - dotfiles

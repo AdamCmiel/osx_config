@@ -1,0 +1,34 @@
+My VIM Help
+
+F Keys
+<F2> line numbering
+<F3> paste text
+<F4> set clipboard=unnamed
+<F5> set list
+<F6> set list!
+<F7> copy whole file to pbcopy
+<F8> show keybinding help
+<F9>
+<F10>
+<F12>
+
+:x writes (if has changes) and quits
+:q quit
+:qa quit all windows
+
+ZZ write and quit all buffers, same as :x or :wq
+ZQ quit all buffers, same as :q!
+
+:bw close buffer
+:bn[ext] next buffer
+:bp[revious] previous buffer
+:enew open new buffer
+:e {file} open file
+:e reread buffer
+:ls show open buffers
+
+Insert Mode:
+  <C-n> autocompletion
+
+Normal Mode:
+  <C-n> NERDTreeToggle

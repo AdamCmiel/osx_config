@@ -1,0 +1,6 @@
+[user]
+	name = Adam Cmiel
+	email = adam@famo.us
+[alias]
+    hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short --abbrev-commit
+    co = checkout

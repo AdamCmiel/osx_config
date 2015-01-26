@@ -1,0 +1,139 @@
+function parse_git_dirty {
+  git diff --no-ext-diff --quiet --exit-code &> /dev/null || echo "*"
+}
+
+function parse_git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/(\1$(parse_git_dirty))/"
+}
+
+function formatted_time {
+  date +"%l:%M%p"
+}
+
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
+[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+
+export PS1="\[\033[00;91m\]<< \[\033[00;33m\]\$(formatted_time) \[\033[00;35m\]\w\[\033[00;36m\]\$(parse_git_branch)\] \033[00;91m\]>> \[\033[00m\]\n"
+
+alias nitrous="ssh action@usw1.nitrousbox.com -p 21896"
+alias ll="ls -laSh"
+alias l="ls | tr ' ' '\n'"
+
+export PATH=${PATH}:~/Documents/adt/sdk/platform-tools
+export PATH=${PATH}:~/Documents/adt/sdk/tools
+export PATH=${PATH}:~/Documents/ant/bin
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
+
+function parse_git_dirty {
+  git diff --no-ext-diff --quiet --exit-code &> /dev/null || echo "*"
+}
+
+function parse_git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/(\1$(parse_git_dirty))/"
+}
+
+alias gpo='git push origin master'
+alias gph='git push heroku master'
+alias gpa='gpo;gph'
+alias gcm='git commit -m'
+alias gac='git add .; git commit -m'
+alias c="open -a /Applications/Google\ Chrome.app 'http://$1'"
+alias git='hub'
+alias work='cd ~/Documents/'
+alias showHidden='defaults write com.apple.finder AppleShowAllFiles TRUE'
+alias hideHidden='defaults write com.apple.finder AppleShowAllFiles FALSE'
+alias wow='git status'
+alias such='git'
+alias very='git'
+alias much='git'
+alias jem='gem'
+alias newtoys='cd ~/Documents/ToyProblems/2014-01-toy-problems; git pull upstream master;'
+alias makeCoffee="coffee -o src/ -cw --bare coffee/"
+alias branch='git branch -a'
+alias swerve='serve'
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias clc='clear'
+alias hf="history | grep"
+alias ip="ifconfig | grep broadcast"
+alias nitrous="ssh action@usw1.nitrousbox.com -p 21896"
+alias editProfile="vim ~/.bash_profile; source ~/.bash_profile"
+alias pserve="python -m SimpleHTTPServer 8000"
+alias befamous="cd ~/Documents/famous"
+#alias ls="ls -laSh"
+alias diskSize="df -H"
+alias scanHomeNetwork="sudo arp-scan 10.0.1.0/24"
+alias scanWorkNetwork="sudo arp-scan 192.168.160.0/23"
+alias killAdobe="ps aux | grep adobe -i | awk {'print $2'} | xargs kill"
+alias cantSee="osascript -e 'quit application \"Dock\"'"
+alias checkmail="vim /var/mail/adamcmiel"
+alias hideDesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+alias showDesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+export PATH="/usr/local/bin:$PATH"
+
+export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+export PATH=$PATH:$HOME/bin
+export PATH=$PATH:$HOME/bin/arcanist/bin
+
+# Add psql to PATH
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.3/bin
+
+# Add eb to PATH
+export PATH=$PATH:~/Documents/AWS/eb/macosx/python2.7
+
+# default to vim
+export EDITOR="/usr/bin/vim"
+
+source ~/.env_keys
+
+# git bash autocompletion
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi
+
+# recursive touching
+function canhaz () {
+  mkdir -p -- "${1%/*}" && touch -- "$1"
+}
+
+#alias node6="/usr/local/Cellar/node/0.11.13/bin/node --harmony --use-strict --harmony-generators"
+alias node6="/usr/local/Cellar/node/0.11.13/bin/node --use-strict --harmony" #ES6
+
+export HISTTIMEFORMAT="%d/%m/%y %T "
+alias lsf="tree -F --noreport -I \"famous|lib\" -C --dirsfirst"
+
+function b () {
+    txt="../";
+    outTxt="";
+    
+    for number in $(seq 1 $1)
+    do
+        outTxt=${outTxt}${txt};
+    done
+    
+    cd $outTxt;
+}
+
+export JAVA_HOME=$(/usr/libexec/java_home)
+
+# For EC2 CLI
+export EC2_HOME=/usr/local/ec2/ec2-api-tools-1.7.1.0  
+export PATH=$PATH:$EC2_HOME/bin 
+export EC2_URL=https://ec2.us-west-2.amazonaws.com
+
+export NVM_DIR="/Users/adamcmiel/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+fi
+
+#nvm use 0.10.33
+$(boot2docker shellinit > /dev/null 2>&1)

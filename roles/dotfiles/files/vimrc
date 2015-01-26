@@ -2,11 +2,8 @@
 
 " Syntax Highlighting "
 syntax enable
-let base16colorspace=256
-let g:solarized_termcolors=16
 colorscheme base16-ocean 
 set background=dark
-""set guifont=Consolas:h20
 set guifont=Inconsolata_for_Powerline:h20
 
 " Markdown syntax plugin "

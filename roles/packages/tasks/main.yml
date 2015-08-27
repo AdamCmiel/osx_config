@@ -7,6 +7,7 @@
     - awscli
     - bash-completion
     - fortune
+    - flow
     - git
     - hub
     - nginx
@@ -14,6 +15,7 @@
     - python
     - tree
     - vim
+    - watchman
     - wget
 
 # Caskroom package included in ansible

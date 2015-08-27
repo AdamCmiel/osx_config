@@ -9,8 +9,10 @@
   with_items:
      - bash_profile
      - env_keys
-     - vimrc
-     - vimhelp
-     - git-completion.bash
-     - gitconfig
+     - "iterm2_shell_integration.bash"
+     - "vimrc"
+     - "vimhelp"
+     - "git-completion.bash"
+     - "gitconfig"
+     - "gitignore"
 

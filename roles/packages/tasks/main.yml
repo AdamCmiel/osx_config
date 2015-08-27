@@ -16,6 +16,7 @@
     - vim
     - wget
 
+# Caskroom package included in ansible
 - name: Install casks
   homebrew_cask: name={{ item }} state=present
   with_items:
@@ -24,12 +25,13 @@
     - bettertouchtool
     - firefox
     - flux
+    - github-desktop
     - google-chrome
     - grandperspective
     - iterm2
     - menumeters
+    - postgres
     - slack
-    - smcfancontrol
     - transmission
     - vagrant
     - virtualbox

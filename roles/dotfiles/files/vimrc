@@ -25,9 +25,9 @@ set equalalways
 let NERDTreeShowHidden=1
 
 " Tabs to 4 spaces "
-set tabstop=4
+set tabstop=2
 set expandtab
-set shiftwidth=4
+set shiftwidth=2
 set shiftround
 
 " Use C-style indentation "
@@ -36,7 +36,7 @@ set copyindent    " copy the previous indentation on autoindenting "
 " Make coffee/python/ruby comments not jump to beginning of line"
 autocmd BufRead *.py inoremap # X<c-h>#
 autocmd BufRead *.coffee inoremap # X<c-h>#
-autocmd BufRead *.rb inoremap # X<c-h>#
+"autocmd BufRead *.rb inoremap # X<c-h>#
 
 " Don't use swapfiles "
 set noswapfile
@@ -60,6 +60,7 @@ nmap <silent> <F6> "set list!"<CR>
 nmap <silent> <F2> :exec &nu==&rnu ? "se nu!" : "se rnu!"<CR>
 
 " Enable paste mode--helps quash indent, etc. problems when pasting blocks of code
+set paste
 nnoremap <F3> :set invpaste paste?<CR>
 
 " Show help "
@@ -74,7 +75,8 @@ map <silent> <F7> :%!pbcopy<CR>u
 
 nnoremap <C-n> :NERDTreeToggle<CR>
 execute pathogen#infect()
-""let g:syntastic_javascript_checkers = ['jshint', 'eslint']
+let g:syntastic_javascript_checkers = ['jshint', 'eslint --reset']
+let g:syntastic_check_on_open = 1
 
 " For Airline "
 " Enable the list of buffers
@@ -94,4 +96,7 @@ set laststatus=2
 
 " My preference with using buffers. See `:h hidden` for more details
 set hidden
+
+" Highlight 81 column
+let &colorcolumn=join(range(81,999),",")
 

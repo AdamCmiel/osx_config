@@ -1,6 +1,11 @@
 [user]
 	name = Adam Cmiel
-	email = adam@famo.us
+	email = adamcmiel@gmail.com
+	signingkey = AA12DD5D
 [alias]
     hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short --abbrev-commit
     co = checkout
+[core]
+	excludesfile = ~/.gitignore
+[push]
+	default = matching

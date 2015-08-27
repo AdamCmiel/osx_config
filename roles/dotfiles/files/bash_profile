@@ -79,6 +79,7 @@ alias cantSee="osascript -e 'quit application \"Dock\"'"
 alias checkmail="vim /var/mail/adamcmiel"
 alias hideDesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
 alias showDesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+alias killMenu="killall SystemUIServer"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
